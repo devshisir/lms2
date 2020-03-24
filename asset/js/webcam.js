@@ -61,13 +61,39 @@
     $('.previewVideoPlay #previewVideo').on('click',function(){
         $('.previewVideoPlay').hide();
     })
+    // check if prev video is finish
     document.getElementById('recorded').addEventListener('ended',myHandler,false);
     function myHandler(e) {
         $('.previewVideoPlay').show();
     }
+    // video play triger
     $('#previewVideo').on('click',function(){
         $('#recorded').trigger('play');
     })
+    // video submit no button function
+    $('.videoSubmitCancel').on('click',function(){
+        $('.videoSubmitbtn').removeClass('vsubmitShow');
+        $('#recorded').removeClass('PreviewVideo');
+        $('.previewVideoPlay #previewVideo').hide('');
+        $('#recordVideobtnACtion').removeClass('show');
+        $('.videoCapterMainButton').show();
+        $('.videoCapterMainButton').show();
+        $('#recorded').trigger('pause');
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // start timer area
 var counter = 0;
 var isPaused = true;

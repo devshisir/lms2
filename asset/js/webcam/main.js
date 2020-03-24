@@ -46,6 +46,9 @@ pausButton.addEventListener('click', () => {
   alert('Stop recording');
   $('#recorded').addClass('PreviewVideo');
   $('.previewVideoPlay').addClass('showPrevbtn');
+  $('.previewVideoPlay #previewVideo').show('');
+  $('.videoSubmitbtn').addClass('vsubmitShow');
+  $('#pauseRecoding').removeClass('show');
   const superBuffer = new Blob(recordedBlobs, {type: 'video/webm'});
   recordedVideo.src = null;
   recordedVideo.srcObject = null;
@@ -121,7 +124,6 @@ function startRecording() {
   }
 
   console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
-  recordButton.textContent = 'Stop';
   playButton.disabled = true;
   downloadButton.disabled = true;
   mediaRecorder.onstop = (event) => {
